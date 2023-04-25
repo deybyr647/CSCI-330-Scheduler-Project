@@ -16,8 +16,19 @@ processQueue.fromArray([process1, process1, process1] as Process[]);
 processQueue.print();
 */
 
-ProcessCreator.readCSV("./processes.csv");
-setTimeout(() => {
-  console.log("Processes after timeout (in):");
-  console.log(ProcessCreator.processes);
-}, 100);
+ProcessCreator.readCSV("./processes.csv")
+  .then((processes) => {
+    console.log(processes);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
+(async () => {
+  try {
+    const processes = await ProcessCreator.readCSV("./processes.csv");
+    console.log(processes);
+  } catch (err) {
+    console.error(err);
+  }
+})();

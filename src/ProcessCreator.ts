@@ -1,5 +1,4 @@
 import Process from "./Process";
-
 import * as fs from "fs";
 import { Options, parse } from "csv-parse";
 
@@ -15,16 +14,15 @@ class ProcessCreator {
     }
   }
 
-  public static readCSV(filePath: string) {
+  public static readCSV(filePath: string): Promise<object[]> {
     const parseOptions: Options = {
       delimiter: ",",
       from_line: 2,
     };
 
-    // Create a ReadStream object for the CSV file
-    return (
-      fs
-        .createReadStream(filePath)
+    return new Promise((resolve, reject) => {
+      // Create a ReadStream object for the CSV file
+      fs.createReadStream(filePath)
 
         // Pipe the ReadStream object to the CSV parser
         .pipe(parse(parseOptions))
@@ -41,13 +39,14 @@ class ProcessCreator {
 
         .on("end", () => {
           console.log("finished reading CSV");
-          return this.processes;
+          resolve(this.processes);
         })
 
         .on("error", (err) => {
           console.log(err.message);
-        })
-    );
+          reject(err);
+        });
+    });
   }
 }
 
