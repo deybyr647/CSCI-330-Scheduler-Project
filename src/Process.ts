@@ -6,7 +6,7 @@ class Process {
   private contextSwitchAmt = 0;
   private pid: string;
 
-  constructor(pid: string, arrivalTime: number, burstTime: number) {
+  constructor(pid = "0", arrivalTime = 1, burstTime = 2) {
     this.pid = pid.toString();
     this.arrivalTime = arrivalTime;
     this.burstTime = burstTime;
