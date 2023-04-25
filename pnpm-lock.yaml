@@ -1,6 +1,14 @@
 lockfileVersion: "6.0"
 
+dependencies:
+  csv-parse:
+    specifier: ^5.3.8
+    version: 5.3.8
+
 devDependencies:
+  "@types/node":
+    specifier: ^18.16.0
+    version: 18.16.0
   "@typescript-eslint/eslint-plugin":
     specifier: ^5.58.0
     version: 5.58.0(@typescript-eslint/parser@5.58.0)(eslint@8.38.0)(typescript@5.0.4)
@@ -139,6 +147,13 @@ packages:
     resolution:
       {
         integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==,
+      }
+    dev: true
+
+  /@types/node@18.16.0:
+    resolution:
+      {
+        integrity: sha512-BsAaKhB+7X+H4GnSjGhJG9Qi8Tw+inU9nJDwmD5CgOmBLEI6ArdhikpLX7DjbjDRDTbqZzU2LSQNZg8WGPiSZQ==,
       }
     dev: true
 
@@ -557,6 +572,13 @@ packages:
       shebang-command: 2.0.0
       which: 2.0.2
     dev: true
+
+  /csv-parse@5.3.8:
+    resolution:
+      {
+        integrity: sha512-ird8lzMv9I64oqIVIHdaTbT7Yr55n2C/Nv6m1LxO7nddLEeI67468VQ9Ik+r6lwYbK9kTE1oSqAVcVKc/Uqx6g==,
+      }
+    dev: false
 
   /debug@4.3.4:
     resolution:
